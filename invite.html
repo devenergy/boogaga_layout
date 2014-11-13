@@ -102,6 +102,8 @@
     var playmarket = 'https://play.google.com/store/apps/details?id=com.futulabs.boogaga';
     var device_url = 'bgg://boogaga.co/invite/' + invite_id;
 
+    document.getElementById('open_app_link').setAttribute('href', device_url);
+
     var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
     var Android = (navigator.userAgent.toLowerCase().indexOf("android") > -1);
 
