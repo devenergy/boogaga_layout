@@ -435,6 +435,11 @@ a {
   font-weight: 700;
   font-size: 80px;
   margin: 50px 0;
+
+  @include adaptive_iphone(PC) {
+    font-size: 40px;
+    margin: 20px 0;
+  }
 }
 
 .big_link {
@@ -445,4 +450,9 @@ a {
   border-bottom: none !important;
   text-decoration: underline;
   font-weight: 400;
+
+  @include adaptive_iphone(PC) {
+    font-size: 40px;
+    line-height: 44px;
+  }
 }
