@@ -1,0 +1,482 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/css3";
+
+@import "framework/valign";
+@import "framework/adaptive";
+@import "framework/grid";
+
+@import "common/helpers";
+@import "components/icons";
+
+$default-transition-property : all;
+$default-transition-duration : .3s;
+$default-transition-function : ease;
+
+body, html {
+  height: 100%;
+  font-family: 'Roboto', 'sans-serif';
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+body {
+  background-color: #c55149;
+
+  &#boogaga {
+    background-color: #00838f;
+
+    .android {
+      @include opacity(1);
+      background-image: url('/img/bgg_iphone.png');
+      height: 678px;
+      width: 219px;
+
+      right: -40px;
+      left: auto;
+
+      @include adaptive_ipad_vt(PC) {
+        right: (120px - 219px);
+        left: auto;
+      }
+
+      @include adaptive_iphone_vt(PC) {
+        right: (75px - 219px);
+        left: auto;
+        background-size: 50%;
+      }
+    }
+
+    .iphone {
+      &:after {
+        display: none;
+      }
+      background-image: url('/img/bgg_android.png');
+      height: 668px;
+      width: 172px;
+
+      right: auto;
+      left: 0;
+
+      @include adaptive_ipad_vt(PC) {
+        right: auto;
+        left: (120px - 172px);
+      }
+
+      @include adaptive_iphone_vt(PC) {
+        right: auto;
+        left: (70px - 172px);
+        background-size: 50%;
+      }
+    }
+
+    .simple_text {
+      font-size: 15px;
+      @include opacity(.5);
+      margin-top: 50px;
+      margin-bottom: 0;
+
+      @include adaptive_iphone(PC) {
+        line-height: 20px;
+        margin-top: 16px;
+      }
+    }
+
+    .first_btn {
+      margin-bottom: 12px;
+
+      @include adaptive_iphone(PC) {
+        margin-top: -40px;
+      }
+    }
+
+    .logo_text {
+      font-size: 28px;
+      font-weight: 100;
+      font-style: italic;
+      text-transform: none;
+      position: relative;
+      display: inline-block;
+
+      @include adaptive_ipad_hz(PC) {
+        margin-bottom: 35px;
+      }
+
+      &:before {
+        @extend .icon;
+        content: "\e603";
+        position: absolute;
+        right: -42px;
+        font-size: 40px;
+        top: -44px;
+      }
+    }
+
+    .btn {
+      &:hover {
+        color: #00838f;
+        background-color: #fff;
+      }
+
+      &:active {
+        color: #00838f;
+        background-color: rgba(#fff, .7);
+      }
+    }
+  }
+}
+
+.boogaga_slogan {
+  width: 260px;
+  height: 365px;
+  display: inline-block;
+  margin-bottom: 60px;
+
+  @include adaptive_ipad_hz(PC) {
+    margin-bottom: 25px;
+  }
+
+  @include adaptive_iphone(PC) {
+    margin-bottom: -26px;
+    margin-top: -90px;
+    margin-left: -6px;
+    @include transform(scale(.5));
+  }
+
+  border: {
+    top: 1px solid rgba(#fff, .3);
+    bottom: 1px solid rgba(#fff, .3);
+  };
+  padding: 20px 0;
+  @include box-sizing(border-box);
+  text-transform: uppercase;
+  .one {
+    font-weight: 100;
+    font-size: 41px;
+    &:after {
+      width: 180px;
+      margin: 22px auto 2px auto;
+    }
+  }
+  .two {
+    font-weight: 900;
+    font-size: 144px;
+    &:after {
+      width: 170px;
+      margin: 11px auto 11px auto;
+    }
+  }
+
+  .one, .two {
+    &:after {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: rgba(#fff, .3);
+      width: 170px;
+    }
+  }
+
+  .three {
+    font-weight: 400;
+    font-size: 94px;
+  }
+}
+
+.iphone, .android {
+  @include cover_bg();
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.iphone {
+  background-image: url('/img/iphone.png');
+  width: 219px;
+  height: 678px;
+  left: -40px;
+
+  &:after {
+    width: 211px;
+    height: 508px;
+    content: '';
+    position: absolute;
+    @include border-radius(4px);
+    background-image: url('/img/ios_pic.jpg');
+    top: 88px;
+    left: -8px;
+
+    @include adaptive_iphone(PC) {
+      top: 215px;
+      left: 60px;
+      background-size: 45.5%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  @include adaptive_ipad_vt(PC) {
+    left: (120px - 219px);
+  }
+
+  @include adaptive_iphone_vt(PC) {
+    left: (75px - 219px);
+    background-size: 50%;
+  }
+}
+
+.android {
+  background-image: url('/img/android.png');
+  width: 172px;
+  height: 668px;
+  @include opacity(.3);
+  right: 0;
+
+  @include adaptive_ipad_vt(PC) {
+    right: (120px - 172px);
+  }
+
+  @include adaptive_iphone_vt(PC) {
+    right: (70px - 172px);
+    background-size: 50%;
+  }
+}
+
+.content_wrapper {
+  width: 100%;
+}
+
+.content {
+  width: 650px;
+  margin: auto;
+
+  @include adaptive_iphone(PC) {
+    width: 250px;
+  }
+
+  .icon-brandle_logo {
+    font-size: 150px;
+
+    @include adaptive_iphone(PC) {
+      font-size: 70px;
+    }
+  }
+
+  .logo_text {
+    font-size: 26px;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    margin-bottom: 60px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @include adaptive_iphone(PC) {
+      font-size: 16px;
+      letter-spacing: 2px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@include valign('body', '.content_wrapper', center);
+
+h2, .h2 {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 50px;
+  font-weight: 100;
+  letter-spacing: 4px;
+  padding-bottom: 2px;
+  line-height: 54px;
+
+  @include adaptive_iphone(PC) {
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 3px;
+  }
+}
+
+a {
+  @include transition();
+  color: #fff;
+  text-decoration: none;
+
+  &.h2 {
+    border-bottom: 2px solid #fff;
+    &:hover {
+      @include opacity(.85);
+    }
+    &:active {
+      @include opacity(.7);
+    }
+  }
+}
+
+.simple_text {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 1px;
+  @include opacity(.8);
+  margin-bottom: 50px;
+
+  @include adaptive_iphone(PC) {
+    margin-bottom: 30px;
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: 0.3px;
+  }
+}
+
+@include valign('.btn .icon_area', '.btn .icon_area i', center);
+@include valign('.btn .content_area', '.btn .middle_content');
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  height: 60px;
+  border: 1px solid #fff;
+  @include border-radius(3px);
+  position: relative;
+  padding-left: 50px;
+  padding-right: 20px;
+  min-width: 113px;
+
+  margin-right: 18px;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include adaptive_iphone(PC) {
+    margin-right: 0;
+    margin-bottom: 15px;
+    height: 40px;
+    padding-left: 35px;
+    padding-right: 10px;
+    min-width: 90px;
+  }
+
+  &.no_icon {
+    padding: 0 40px;
+    .middle_content {
+      text-align: center;
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+    &:hover, &:active {
+      color: #fff;
+      background-color: transparent;
+    }
+    @include opacity(.45);
+  }
+
+  &:hover {
+    color: #c55149;
+    background-color: #fff;
+  }
+
+  &:active {
+    color: #c55149;
+    background-color: rgba(#fff, .7);
+  }
+
+  .icon_area {
+    width: 50px;
+    float: left;
+    font-size: 30px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+
+    @include adaptive_iphone(PC) {
+      font-size: 18px;
+      width: 35px;
+    }
+  }
+
+  .content_area {
+    height: 100%;
+    float: left;
+    text-align: left;
+
+    .pre_text {
+      margin-bottom: 5px;
+      font-size: 12px;
+      font-weight: 100;
+
+      @include adaptive_iphone(PC) {
+        margin-bottom: 3px;
+        font-size: 9px;
+      }
+    }
+
+    .main_text {
+      font-size: 18px;
+      font-weight: 300;
+
+      @include adaptive_iphone(PC) {
+        font-size: 14px;
+      }
+    }
+
+    .pre_text, .main_text {
+      display: block;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+.arrow_wrap {
+  margin: 30px 0;
+  @include adaptive_iphone(PC) {
+    margin: 15px 0;
+  }
+}
+
+.arrow {
+  position: relative;
+  width: 2px;
+  height: 56px;
+  display: inline-block;
+  background-color: #fff;
+
+  @include adaptive_iphone(PC) {
+    height: 40px;
+
+    &:before, &:after {
+      bottom: 7px;
+      width: 18px;
+    }
+
+    &:before {
+      right: -14px;
+    }
+
+    &:after {
+      left: -14px;
+    }
+  }
+
+  &:after, &:before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: #fff;
+    bottom: 11px;
+    width: 30px;
+  }
+
+  &:after {
+    left: -23px;
+    @include transform(rotate(50deg));
+  }
+  &:before {
+    right: -23px;
+    @include transform(rotate(-50deg));
+  }
+}

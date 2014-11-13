@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html ng-app="app" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Boogaga — анонимные гео-чаты</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="/favicon.ico?v=2" rel="shortcut icon" type="image/x-icon" />
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100italic,100,300,700,400&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-55624371-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+</head>
+<body id="boogaga">
+
+<div class="iphone"></div>
+<div class="android"></div>
+
+<div class="content_wrapper">
+    <div class="content">
+
+        <div>
+            <p class="logo_text">
+                Boogaga
+            </p>
+        </div>
+
+        <div class="boogaga_slogan">
+            <p class="one">Анонимные</p>
+            <p class="two">Гео</p>
+            <p class="three">Чаты</p>
+        </div>
+
+        <div class="first_btn">
+            <a href="itmss://itunes.apple.com/us/app/boogaga-uznajte-poslednie/id912396596" class="btn">
+                <span class="icon_area">
+                    <i class="icon-apple"></i>
+                </span>
+
+                <span class="content_area">
+                    <span class="middle_content">
+                        <span class="pre_text">Download on the</span>
+                        <span class="main_text">App Store</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+        <div>
+            <a href="https://play.google.com/store/apps/details?id=com.futulabs.boogaga" class="btn">
+                <span class="icon_area">
+                    <i class="icon-android"></i>
+                </span>
+
+                <span class="content_area">
+                    <span class="middle_content">
+                        <span class="pre_text">Available on the</span>
+                        <span class="main_text">Play Market</span>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <p class="simple_text">
+            Узнайте, что на самом деле<br/>
+            думают те, кто вокруг
+        </p>
+
+    </div>
+</div>
+
+
+<script>
+
+    var path = location.pathname;
+    if(path.slice(-1) == '/') {
+        path = path.substring(0, path.length - 1);
+    }
+    path = path.split('/');
+
+    var invite_id = path[path.length - 1];
+
+    var appstore = 'itmss://itunes.apple.com/us/app/brandle-messendzer-dla-biznesa/id930891423';
+    var playmarket = 'https://play.google.com/store/apps/details?id=com.futulabs.boogaga';
+    var device_url = 'bgg://boogaga.co/invite/' + invite_id;
+
+    var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+    var Android = (navigator.userAgent.toLowerCase().indexOf("android") > -1);
+
+    if(!iOS && !Android) {
+        location.href = '/';
+    } else {
+        var timeout;
+
+        function open_tore() {
+            if(iOS) {
+                location.href = appstore;
+            } else if(Android) {
+                location.href = playmarket;
+            }
+
+        }
+
+        function try_to_open_app() {
+            location.href = device_url;
+            timeout = setTimeout('open_store()', 300);
+        }
+
+        try_to_open_app();
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+@mixin valign($container, $cell, $text-align: left){
+	#{$container} {
+		display: table;
+		width: 100%;
+	}
+	
+	#{$cell} {
+		float: none;
+		display: table-cell;
+		vertical-align: middle;
+		
+		text-align: $text-align;
+	}
+}

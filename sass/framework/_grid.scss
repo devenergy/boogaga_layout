@@ -1,0 +1,73 @@
+$grid-sizes: pc md sm xs xxs;
+$grid-count: 12;
+
+@import "compass/utilities/general/clearfix";
+
+.col {
+	float: left;
+    position: relative;
+    min-height: 1px;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+// Apply common column params 
+@for $grid_num from 1 through $grid-count {
+
+	@each $name in $grid-sizes {
+	  .col-#{$name}-#{$grid_num},
+	  .col-#{$name}-half {
+	    @extend .col;
+	  }
+	}
+}
+
+@each $name in $grid-sizes {
+	@for $grid_num from 1 through $grid-count {  
+		
+		// Form column name (col-pc-1)
+		$col-name: '.col-' + $name + '-' + $grid_num;
+		
+		// Calc column width
+		$width: 100% / ($grid-count / $grid_num);
+		
+		// Add half and full helper classes (col-pc-6 = col-pc-half, col-pc-12 = col-pc-full)
+		@if $grid-count/$grid_num == 2 {
+			$col-name: $col-name + ', .col-' + $name + '-half';
+		} @else if $grid-count == $grid_num {
+			$col-name: $col-name + ', .col-' + $name + '-full';
+		}
+		
+		// Apply width to cols
+	    #{$col-name} {
+	    	@if $name == pc {
+				@include adaptive_pc() {
+					width: $width;
+				}
+			} @else if $name == md {
+				@include adaptive_ipad_hz(PC_FALLBACK) {
+					width: $width;
+				}
+			} @else if $name == sm {
+				@include adaptive_ipad_vt(PC_FALLBACK) {
+					width: $width;
+				}
+			} @else if $name == xs {
+				@include adaptive_iphone_hz(PC_FALLBACK) {
+					width: $width;
+				}
+			} @else if $name == xxs {
+				@include adaptive_ipad_vt(PC_FALLBACK) {
+					width: $width;
+				}
+			}
+	    }
+	}
+}
+
+.row {
+	position: relative;
+	height: 100%;
+	@include pie-clearfix();
+}

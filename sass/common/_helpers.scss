@@ -1,0 +1,8 @@
+@mixin cover_bg() {
+  background: {
+    repeat: no-repeat;
+    position: center center;
+    color: transparent;
+    size:cover;
+  }
+}

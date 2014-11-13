@@ -1,0 +1,25 @@
+{
+	"name": "app",
+	"version": "0.1.0",
+	"author": "Vadim Sorokin",
+	"contributors": [
+        {
+            "name": "Vadim Sorokin",
+            "email": "xxx@xxx.com"
+        }
+	],
+	"dependencies": {
+
+	},
+	"devDependencies": {
+		"gulp": "latest",
+        "gulp-concat": "latest",
+        "gulp-uglify": "latest",
+        "gulp-sass": "latest",
+        "gulp-exec": "latest",
+        "gulp-util": "latest"
+	},
+	"engines": {
+		"node": ">=0.8"
+	}
+}

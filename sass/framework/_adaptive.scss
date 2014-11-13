@@ -1,0 +1,136 @@
+$ipad-w: 768px;
+$ipad-h: 1024px;
+
+$iphone5-w: 320px;
+$iphone5-h: 568px;
+
+// Define browser width range for ipad landscape (horizontal)
+$pc-ipad-hz-from: 1000px;
+$pc-ipad-hz-to: 1024px;
+
+// Define browser width range for iphone landscape (horizontal)
+$pc-iphone-hz-from: 450px;
+$pc-iphone-hz-to: 568px;
+
+/* ---------------- Helpers ---------------- */
+
+@mixin media_minmax($min, $max, $orientation: false) {
+
+	@if $orientation {
+        @media only screen
+	    and (min-device-width : $min)
+	    and (max-device-width : $max)
+	    and (orientation : $orientation) {
+	        @content;
+	    }
+    } @else {
+	    @media only screen
+	    and (min-device-width : $min)
+	    and (max-device-width : $max){
+	        @content;
+	    }
+    }
+}
+
+@mixin media_pc_minmax($min, $max) {
+
+	@media only screen
+    and (min-width : $min)
+    and (max-width : $max){
+        @content;
+    }
+}
+
+/* ---------------- PC ---------------- */
+
+// Browser window > 1024px = PC
+@mixin adaptive_pc() {
+    @media only screen
+    and (min-width : 1024px) {
+        @content;
+    }
+}
+
+
+/* ---------------- iPhone ---------------- */
+
+// iPhone 5
+@mixin adaptive_iphone($pc_fallback: false) {
+    @include media_minmax($iphone5-w, $iphone5-h) {
+    	@content;
+    };
+    
+    @if $pc_fallback {
+        @include media_pc_minmax($iphone5-w, $iphone5-h) {
+	    	@content;
+	    };
+    }
+}
+
+// iPhone 5 lanscape
+@mixin adaptive_iphone_hz($pc_fallback: false) {
+    @include media_minmax($iphone5-w, $iphone5-h, landscape) {
+    	@content;
+    };
+    
+    @if $pc_fallback {
+    	@include media_pc_minmax($pc-iphone-hz-from, $pc-iphone-hz-to) {
+    		@content;
+		};
+    }
+}
+
+// iPhone 5 portrait
+@mixin adaptive_iphone_vt($pc_fallback: false) {
+    @include media_minmax($iphone5-w, $iphone5-h, portrait) {
+    	@content;
+    };
+    
+    @if $pc_fallback {
+	    @include media_pc_minmax(0, $pc-iphone-hz-from - 1px) {
+	    	@content;
+	    };
+    }
+}
+
+
+/* ---------------- iPad ---------------- */
+
+// iPad
+@mixin adaptive_ipad($pc_fallback: false) {
+    @include media_minmax($ipad-w, $ipad-h) {
+    	@content;
+    };
+    
+    @if $pc_fallback {
+        @include media_pc_minmax($ipad-w, $ipad-h) {
+	    	@content;
+	    };
+    }
+}
+
+// iPad landscape
+@mixin adaptive_ipad_hz($pc_fallback: false) {
+    @include media_minmax($ipad-w, $ipad-h, landscape) {
+    	@content;
+    };
+    
+    @if $pc_fallback {
+    	@include media_pc_minmax($pc-ipad-hz-from, $pc-ipad-hz-to) {
+    		@content;
+		};
+    }	
+}
+
+// iPad portrait
+@mixin adaptive_ipad_vt($pc_fallback: false) {
+	@include media_minmax($ipad-w, $ipad-h, portrait) {
+    	@content;
+    };
+    
+    @if $pc_fallback {
+	    @include media_pc_minmax($iphone5-h, $pc-ipad-hz-from - 1px) {
+	    	@content;
+	    };
+    }
+}
