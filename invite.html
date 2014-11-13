@@ -38,13 +38,11 @@
             </p>
         </div>
 
-        <div class="boogaga_slogan">
-            <p class="one">Анонимные</p>
-            <p class="two">Гео</p>
-            <p class="three">Чаты</p>
+        <div>
+            <h2 style="margin-bottom: 30px">Скачайте приложение</h2>
         </div>
 
-        <div class="first_btn">
+        <div>
             <a href="itmss://itunes.apple.com/us/app/boogaga-uznajte-poslednie/id912396596" class="btn">
                 <span class="icon_area">
                     <i class="icon-apple"></i>
@@ -57,8 +55,7 @@
                     </span>
                 </span>
             </a>
-        </div>
-        <div>
+
             <a href="https://play.google.com/store/apps/details?id=com.futulabs.boogaga" class="btn">
                 <span class="icon_area">
                     <i class="icon-android"></i>
@@ -71,6 +68,14 @@
                     </span>
                 </span>
             </a>
+        </div>
+
+        <div>
+            <h2 class="special_boogaga_char">&</h2>
+        </div>
+
+        <div>
+            <a class="h2 big_link" href="" id="open_app_link">Войдите<br/>в чат</a>
         </div>
 
         <p class="simple_text">
@@ -100,7 +105,7 @@
     var Android = (navigator.userAgent.toLowerCase().indexOf("android") > -1);
 
     if(!iOS && !Android) {
-        location.href = '/';
+        //location.href = '/';
     } else {
         var timeout;
 
