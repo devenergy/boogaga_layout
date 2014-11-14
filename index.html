@@ -26,60 +26,124 @@
 </head>
 <body id="boogaga">
 
-<div class="iphone"></div>
-<div class="android"></div>
+<div id="lang_en">
+    <div class="iphone"></div>
+    <div class="android"></div>
 
-<div class="content_wrapper">
-    <div class="content">
+    <div class="content_wrapper">
+        <div class="content">
 
-        <div>
-            <p class="logo_text">
-                Boogaga
+            <div>
+                <p class="logo_text">
+                    Boogaga
+                </p>
+            </div>
+
+            <div class="boogaga_slogan">
+                <p class="one">ANONYMOUS</p>
+                <p class="two">GEO</p>
+                <p class="three">CHATS</p>
+            </div>
+
+            <div class="first_btn">
+                <a href="itmss://itunes.apple.com/us/app/boogaga-uznajte-poslednie/id912396596" class="btn">
+                    <span class="icon_area">
+                        <i class="icon-apple"></i>
+                    </span>
+
+                    <span class="content_area">
+                        <span class="middle_content">
+                            <span class="pre_text">Download on the</span>
+                            <span class="main_text">App Store</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div>
+                <a href="https://play.google.com/store/apps/details?id=com.futulabs.boogaga" class="btn">
+                    <span class="icon_area">
+                        <i class="icon-android"></i>
+                    </span>
+
+                    <span class="content_area">
+                        <span class="middle_content">
+                            <span class="pre_text">Available on the</span>
+                            <span class="main_text">Play Market</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+
+            <p class="simple_text">
+                Find out what people around<br/>
+                you really think
             </p>
+
         </div>
-
-        <div class="boogaga_slogan">
-            <p class="one">Анонимные</p>
-            <p class="two">Гео</p>
-            <p class="three">Чаты</p>
-        </div>
-
-        <div class="first_btn">
-            <a href="itmss://itunes.apple.com/us/app/boogaga-uznajte-poslednie/id912396596" class="btn">
-                <span class="icon_area">
-                    <i class="icon-apple"></i>
-                </span>
-
-                <span class="content_area">
-                    <span class="middle_content">
-                        <span class="pre_text">Download on the</span>
-                        <span class="main_text">App Store</span>
-                    </span>
-                </span>
-            </a>
-        </div>
-        <div>
-            <a href="https://play.google.com/store/apps/details?id=com.futulabs.boogaga" class="btn">
-                <span class="icon_area">
-                    <i class="icon-android"></i>
-                </span>
-
-                <span class="content_area">
-                    <span class="middle_content">
-                        <span class="pre_text">Available on the</span>
-                        <span class="main_text">Play Market</span>
-                    </span>
-                </span>
-            </a>
-        </div>
-
-        <p class="simple_text">
-            Узнайте, что на самом деле<br/>
-            думают те, кто вокруг
-        </p>
-
     </div>
 </div>
+<div id="lang_ru">
+    <div class="iphone"></div>
+    <div class="android"></div>
 
+    <div class="content_wrapper">
+        <div class="content">
+
+            <div>
+                <p class="logo_text">
+                    Boogaga
+                </p>
+            </div>
+
+            <div class="boogaga_slogan">
+                <p class="one">Анонимные</p>
+                <p class="two">Гео</p>
+                <p class="three">Чаты</p>
+            </div>
+
+            <div class="first_btn">
+                <a href="itmss://itunes.apple.com/us/app/boogaga-uznajte-poslednie/id912396596" class="btn">
+                    <span class="icon_area">
+                        <i class="icon-apple"></i>
+                    </span>
+
+                    <span class="content_area">
+                        <span class="middle_content">
+                            <span class="pre_text">Download on the</span>
+                            <span class="main_text">App Store</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div>
+                <a href="https://play.google.com/store/apps/details?id=com.futulabs.boogaga" class="btn">
+                    <span class="icon_area">
+                        <i class="icon-android"></i>
+                    </span>
+
+                    <span class="content_area">
+                        <span class="middle_content">
+                            <span class="pre_text">Available on the</span>
+                            <span class="main_text">Play Market</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+
+            <p class="simple_text">
+                Узнайте, что на самом деле<br/>
+                думают те, кто вокруг
+            </p>
+
+        </div>
+    </div>
+</div>
+<script>
+    if(navigator.language.indexOf('ru') != -1) {
+        document.getElementById('lang_ru').style.display = 'table';
+    } else {
+        document.getElementById('lang_en').style.display = 'table';
+    }
+</script>
 </body>
 </html>

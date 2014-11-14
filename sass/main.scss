@@ -21,6 +21,11 @@ body, html {
   overflow: hidden;
 }
 
+#lang_en, #lang_ru {
+  display: none;
+  height: 100%;
+}
+
 body {
   background-color: #c55149;
 
@@ -130,7 +135,7 @@ body {
 }
 
 .boogaga_slogan {
-  width: 260px;
+  //width: 260px;
   height: 365px;
   display: inline-block;
   margin-bottom: 60px;
@@ -142,7 +147,8 @@ body {
   @include adaptive_iphone(PC) {
     margin-bottom: -26px;
     margin-top: -90px;
-    margin-left: -6px;
+    margin-left: -25px;
+    width: 300px;
     @include transform(scale(.5));
   }
 
@@ -454,7 +460,7 @@ a {
   font-weight: 400;
 
   @include adaptive_iphone(PC) {
-    font-size: 40px;
-    line-height: 44px;
+    font-size: 33px;
+    line-height: 38px;
   }
 }
