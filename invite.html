@@ -195,7 +195,10 @@
             timeout = setTimeout('open_store()', 300);
         }
 
-        try_to_open_app();
+        if(iOS) {
+            try_to_open_app();
+        }
+
     }
 
 </script>
